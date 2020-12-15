@@ -1,0 +1,730 @@
+// .van-radio__icon .van-icon {
+//     color: $grey;
+//     border-color: $grey;
+// }
+// .van-button::before,.van-button::after {
+//     border-color: transparent;
+//     background-color: transparent;
+// }
+// .van-button--default {
+//     border-color: transparent;
+//     background-color: transparent;
+// }
+
+// // 单选radio选中
+// .van-checkbox__icon--checked,.van-radio__icon--checked {
+//     .van-icon {
+//         background-color: $blue;
+//         border-color: $blue;
+//         color: $white;
+//     }
+// }
+// // 单选radio边框颜色
+// .van-checkbox__icon .van-icon {
+//     border-color: $defaultColor;
+// }
+// 弹窗里的提交和取消按钮
+.van-dialog {
+    .van-dialog__header {
+        padding-top: 50px;
+        font-size: 30px;
+        color: $black;
+        line-height: 30px;
+        font-weight: normal;
+    }
+
+    ;
+
+    .van-dialog__content {
+        padding-top: 35px;
+        padding-bottom: 50px;
+
+        .van-dialog__message--has-title {
+            font-size: 28px;
+            color: $grey;
+            line-height: 28px;
+            padding-bottom: 10px;
+        }
+    }
+
+    ;
+
+    .van-dialog__footer--buttons {
+        display: block;
+        height: 100px;
+
+        .van-button {
+            width: 50%;
+            height: 100px;
+            line-height: 100px;
+            max-height: 100px;
+
+            // @include rounded-corners(20px);
+            .van-button__text {
+                line-height: 100px;
+                max-height: 100px;
+                font-size: 30px;
+            }
+        }
+
+        ;
+
+        .van-button.van-dialog__confirm {
+            color: $blue;
+            border: 1px solid $bordergrey;
+            border-right: 0;
+            border-bottom: 0;
+        }
+
+        ;
+
+        .van-button.van-dialog__cancel {
+            border: 1px solid $bordergrey;
+            border-right: 0;
+            border-bottom: 0;
+            color: $black;
+        }
+
+        ;
+    }
+}
+
+// Notify 消息提示
+.van-notify {
+    @include line-height(60px, 60px);
+    font-size: 24px;
+    padding: 0;
+}
+
+.van-toast--text {
+    padding: 20px 30px;
+}
+
+// 重写vant样式
+// 搜索框
+.van-search {
+    padding: 30px 0;
+    font-size: 24px;
+
+    .van-search__content {
+        padding-left: 14px;
+        background: $holderbg;
+        border: 1px solid $holderborder;
+        height: 55px;
+        @include rounded-corners(5px);
+
+        .van-cell.van-field {
+            padding: 0;
+            line-height: 55px;
+            margin-right: 14px;
+
+            .van-field__left-icon {
+                .van-icon.van-icon-search {
+                    font-size: 30px;
+                    line-height: 55px;
+                    color: $placeholder;
+                }
+            }
+
+            ;
+
+            .van-field__control {
+                padding-right: 14px;
+                height: 55px;
+                line-height: 55px;
+                color: $black;
+            }
+        }
+    }
+
+    ;
+
+    .van-search__action {
+        margin-left: 25px;
+        color: $cancel;
+        font-size: 26px;
+    }
+
+    ;
+}
+
+;
+
+// 当前选项卡底部边框颜色
+.van-tabs__line {
+    background-color: $blue !important;
+    height: 4px !important;
+}
+
+// 交易界面选项卡
+.van-tabs.spotsTab {
+    .van-tabs__nav {
+        border-bottom: 1px solid $bordergrey;
+    }
+}
+
+// 搜索界面选项卡
+.van-tabs.secondTab.van-tabs--line {
+    .van-tabs__wrap {
+        line-height: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        height: 50px;
+    }
+
+    ;
+
+    .van-tabs__nav {
+        .van-tab {
+            height: 30px;
+            line-height: 30px;
+            flex-basis: 20% !important;
+        }
+
+        ;
+
+        .van-tabs__line {
+            bottom: 0;
+            width: 30px !important;
+        }
+
+        ;
+    }
+
+    ;
+
+    .van-tabs__content {
+        top: 187px;
+        overflow: auto;
+        bottom: 0;
+
+        .van-panel {
+            .van-panel__header {
+                border-bottom: 0;
+            }
+        }
+    }
+}
+
+// 交易界面选项卡
+.chartBar {
+    .van-tabs.chartTab {
+        height: 60px;
+
+        .van-tabs__wrap {
+            height: 60px;
+            line-height: 60px;
+            width: 100%;
+            background: $white;
+            border-bottom: 1px solid $bordergrey;
+            .van-tabs__nav--line {
+                padding-bottom: 0 !important;
+            }
+            .van-tabs__nav {
+                width: 50%;
+                height: 60px;
+                margin-left: 24px;
+                
+
+                .van-tab {
+                    height: 60px;
+                    line-height: 60px;
+                    .van-ellipsis {
+                        font-size: 22px;
+                    }
+                }
+
+                .van-tab.van-tab--active {
+                    .van-ellipsis {
+                        color: $blue;
+                    }
+                }
+
+                .van-tabs__line {
+                    bottom: 0;
+                    width: 30px !important;
+                }
+
+            }
+
+        }
+
+
+        .van-tabs__content {
+            position: static;
+            padding-top: 61px;
+            background: $white;
+            min-height: 580px;
+            padding-right: 239px;
+
+            .van-tab__pane {
+                width: 100%;
+                height: 100%;
+                @include flex();
+
+            }
+        }
+
+        ;
+    }
+
+    ;
+    // 如果priceBar 是缩小的  chartTab需要加上higher样式
+    // .van-tabs.chartTab.higher {
+    //     .van-tabs__content {
+    //         top: 366px;
+    //     }
+    // }
+}
+
+// 荷兰式拍卖详情界面选项卡
+.cauctionTabs.van-tabs.van-tabs--line {
+    flex: 1;
+    width: 100%;
+
+    .van-tabs__wrap {
+        height: 95px;
+        overflow: hidden;
+        padding-left: 64px;
+        padding-right: 24px;
+        background: $shadowbg;
+        .van-tabs__nav {
+            background: transparent;
+            border-bottom: 0;
+
+            .van-tab {
+                font-size: 26px;
+                line-height: 95px;
+                flex-basis: 20% !important;
+                padding: 0;
+            }
+            .van-tab.van-tab--active {
+                .van-ellipsis {
+                    color: $blue;
+                }
+            }
+            .van-tabs__line {
+                top: 80px;
+                width: 30px !important;
+            }
+        }
+    }
+
+    ;
+}
+
+// 步进器样式
+.van-stepper {
+    float: left;
+    margin-left: 30px;
+
+    .iconfont {
+        font-weight: bold;
+    }
+
+    ;
+
+    .van-stepper__minus {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background: $minusbg;
+        margin-right: 10px;
+        float: left;
+    }
+
+    ;
+
+    .van-stepper__plus {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background: $plusbg;
+        margin-left: 10px;
+        float: left;
+    }
+
+    ;
+
+    .van-stepper__input {
+        height: 55px;
+        line-height: 55px;
+        width: 210px;
+        padding: 0 20px;
+        background: $plusbg;
+        font-size: 22px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .van-field__control {
+            text-align: center;
+            color: $plus;
+        }
+    }
+}
+
+//加减样式
+.customStep {
+    width: 100%;
+    margin-left: 0;
+
+    .van-stepper__minus {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background: $minusbg;
+        margin-left: 40px;
+        float: left;
+        font-size: 20px;
+    }
+
+    .van-stepper__plus {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background: $plusbg;
+        margin-right: 40px;
+        float: right;
+    }
+}
+
+//button样式高度
+.cusbtn {
+    height: 100px;
+    font-size: 28px;
+    background: #5c7ce6;
+}
+
+//清楚浮动
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.clearfloat {
+    zoom: 1
+}
+
+// 交易弹窗里输入框样式
+.bigPriceField.van-field,
+.priceField.van-field {
+    height: 55px;
+
+    .van-field__body {
+        height: 55px;
+
+        .van-field__control {
+            height: 55px;
+            line-height: 55px;
+            color: $black;
+        }
+    }
+}
+
+.bigPriceField.van-field {
+    .van-field__body {
+        .van-field__control {
+            background: $holderbg;
+        }
+    }
+}
+
+// 交易弹窗里的数字键盘样式
+.keyboard.van-number-keyboard--custom {
+    height: 360px;
+
+    .van-number-keyboard__body {
+        width: 100%;
+        height: 360px;
+
+        .van-key {
+            height: 90px;
+            line-height: 90px;
+            font-size: 30px;
+        }
+
+        ;
+    }
+
+    ;
+
+    .van-number-keyboard__sidebar {
+        height: 360px;
+
+        .van-key--big {
+            height: 180px;
+            line-height: 180px;
+            font-size: 28px;
+        }
+
+        ;
+
+        .van-key--big.van-key--close {
+            background: $blue;
+            color: $white;
+        }
+    }
+}
+
+// 提交失败Toast样式
+.van-toast.failed {
+    width: 246px;
+    max-width: 246px;
+    height: 150px;
+    background: $black;
+    opacity: .8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    @include rounded-corners(8px);
+    z-index: 2002;
+}
+
+// 仓单流水界面选项卡
+.van-tabs.flowTab.van-tabs--line {
+    height: 70px;
+    background: $white;
+
+    .van-tabs__wrap {
+        height: 70px;
+        line-height: 70px;
+
+        .van-tabs__nav.van-tabs__nav--line {
+            width: 50%;
+            padding-bottom: 0;
+            margin: 0 auto;
+
+            .van-tab {
+                height: 70px;
+                line-height: 70px;
+                font-size: 24px;
+            }
+
+            ;
+
+            .van-tab.van-tab--active {
+                .van-ellipsis {
+                    color: $blue;
+                }
+            }
+
+            .van-tabs__line {
+                bottom: 0;
+            }
+
+            ;
+        }
+
+        ;
+    }
+
+    ;
+
+    .van-tabs__content {
+        position: fixed;
+        top: 268px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: auto;
+        background: $holderbg;
+    }
+
+    ;
+}
+
+// 步骤条样式
+.van-steps {
+    overflow: hidden;
+    padding-left: 60px;
+
+    .van-step--vertical {
+        display: block;
+        float: none;
+        padding-bottom: 60px;
+
+        // line-height: 22px;
+        .van-step__title {
+            p {
+                font-size: 22px;
+                line-height: 30px;
+                color: $deepGrey;
+                text-align: left;
+            }
+
+            ;
+        }
+
+        ;
+
+        .van-step__circle-container {
+            left: -20.5px;
+            width: 18px;
+            height: 18px;
+            text-align: center;
+
+            .van-step__circle {
+                width: 9px;
+                height: 9px;
+                margin-left: -4.5px;
+            }
+
+            ;
+
+            .van-icon.van-icon-checked.van-step__icon {
+                margin-left: -18px;
+                color: $nosearch !important;
+                width: 18px;
+                height: 18px;
+            }
+
+            ;
+        }
+
+        ;
+
+        .van-step__line {
+            left: -31px;
+            border: 1px solid $border;
+        }
+
+        ;
+    }
+
+    ;
+
+    .van-step--vertical:last-child {
+        .van-step__line {
+            border: 0;
+        }
+    }
+
+    ;
+}
+
+//加减样式
+.customStep {
+    width: 100%;
+    margin-left: 0;
+
+    .van-stepper__minus {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background: $minusbg;
+        margin-left: 40px;
+        float: left;
+        font-size: 20px;
+    }
+
+    .van-stepper__plus {
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        background: $plusbg;
+        margin-right: 40px;
+        float: right;
+    }
+}
+
+//button样式高度
+.cusbtn {
+    height: 100px;
+    font-size: 28px;
+    background: #5c7ce6;
+}
+
+//清楚浮动
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.clearfloat {
+    zoom: 1
+}
+
+// 荷兰式拍卖详情界面步骤条样式
+.hlstep.van-steps {
+    .van-step--vertical:first-child {
+        .van-step__circle-container {
+            .van-step__circle {
+                background: transparent;
+            }
+        }
+    }
+
+    ;
+}
+
+//底部上拉选择栏样式
+.van-action-sheet {
+    background-color: $bordergrey;
+
+    .van-action-sheet__item {
+        height: 100px;
+        font-size: 28px;
+        color: $black;
+        line-height: 100px;
+        border-bottom: 1px solid $bordergrey;
+    }
+
+    .van-action-sheet__item:last-child {
+        margin-top: 20px;
+        color: $deepGrey;
+        border: none;
+    }
+}
+
+//底部上拉时间选择栏样式
+.van-action-sheet {
+    .van-action-sheet__header {}
+
+    .van-picker__toolbar {
+        height: 100px;
+        line-height: 100px;
+        border-bottom: 1px solid $bordergrey;
+
+        >div {
+            color: #5c7ce6;
+            font-size: 30px;
+        }
+    }
+
+    .van-picker__columns {
+        >div {
+            font-size: 30px;
+        }
+    }
+}
+
+//页面滑动效果
+.v-enter-active,
+.v-leave-active {
+    transition: all 0.3s;
+}
+.v-enter,
+.v-leave-to {
+    transform: translateX(100%);
+}
+
+// 页面弹窗
+.van-dialog__confirm {
+    margin-bottom: 20px;
+}
+// 重写vant样式
+.van-action-sheet .van-action-sheet__item:last-child {
+    margin-top: 0;
+}
+
+.order .header-filter .header-filter_s .iconfont {
+    left: auto !important;
+    right: auto !important;
+}
