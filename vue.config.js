@@ -1,109 +1,26 @@
-const webpack = require('webpack');
-const path = require('path');
-// const utils = require('./src/config/utils')
-
 module.exports = {
-    publicPath: '/',
-    outputDir: 'dist',
-    assetsDir: 'static',
-    runtimeCompiler: false,
-    productionSourceMap: false,
-    css: {
-        extract: true,
-        sourceMap: false,
-        modules: false,
-        loaderOptions: {
-            postcss: {
-                plugins: [
-                    require('autoprefixer')(),
-                    require('postcss-pxtorem')({
-                        rootValue: 64,
-                        propList: ['*'],
-                        selectorBlackList: [
-                            ".van-checkbox__icon",
-                        ]
-                    })
-                ]
-            },
-            sass: {
-                data: `
-                    @import "@/assets/css/theme/reset.scss";
-                    @import "@/assets/css/theme/color.scss";
-                    @import "@/assets/css/theme/mixin.scss";
-                    @import "@/assets/css/theme/common.scss";
-                `
-            }
-        }
-    },
-    
-    chainWebpack: config => {
-        // 处理重新加载时候不加载WebWorker代码的问题
-        // config.module.rule("js").exclude.add(/\.worker\.js$/);
-        config.optimization.minimize(true);
-        config.optimization.splitChunks({ chunks: 'all' });
-
-        config.resolve.alias
-            .set('@', path.resolve('src'))
-            .set('@assets', path.resolve('src/assets'))
-     
-        const imagesRule = config.module.rule('images');
-        imagesRule.uses.clear();
-        imagesRule
-            .use('file-loader')
-            .loader('url-loader')
-            .options({
-                limit: 10000,
-                fallback: {
-                    loader: 'file-loader',
-                    options: {
-                        name: 'images/[name].[hash:8].[ext]'
-                    }
-                }
-            });
-
-        // config.module
-        //     .rule('proto')
-        //     .test(/\.(proto)(\?.*)?$/)
-        //     .use('file-loader')
-        //     .loader('file-loader')
-        //     .options({
-        //         fallback: {
-        //             loader: 'file-loader',
-        //             options: {
-        //                 name: utils.assetsPath('files/[name].[hash:7].[ext]')
-        //             }
-        //         }
-        //     })
-        //     .end()
-        // config.module
-        //     .rule('worker')
-        //     .test(/\.worker\.js$/)
-        //     .use()
-        //     .loader('worker-loader')
-    },
-    configureWebpack: {
-        plugins: [new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)],
-        devtool: 'eval-source-map'
-    },
-    devServer: {
-        open: true,
-        port: 3000,
-        https: false,
-        hotOnly: false,
-        overlay: {
-            warnings: true,
-            errors: true
-        },
-        //代理配置
-        // proxy: {
-        //     '/api': {
-        //         target: 'https://m.kuaidi100.com/app/query/', //对应自己的接口
-        //         changeOrigin: true,
-        //         ws: true,
-        //         pathRewrite: {
-        //             '^/api': ''
-        //         }
-        //     }
-        // }
+  css: {
+    loaderOptions: {
+      // 默认情况下 `sass` 选项会同时对 `sass` 和 `scss` 语法同时生效
+      // 因为 `scss` 语法在内部也是由 sass-loader 处理的
+      // 但是在配置 `prependData` 选项的时候
+      // `scss` 语法会要求语句结尾必须有分号，`sass` 则要求必须没有分号
+      // 在这种情况下，我们可以使用 `scss` 选项，对 `scss` 语法进行单独配置
+      scss: {
+        prependData: '@import "~@/styles/variables.scss";'
+      }
     }
+  },
+  devServer: {
+    proxy: {
+      "/boss": {
+        target: "http://eduboss.lagou.com",
+        changeOrigin: true // 把请求头中的host设置成target目标地址 对方的反向代理服务器就能正确的识别请求头中的host 从而转发到正确的服务
+      },
+      "/front": {
+        target: "http://edufront.lagou.com",
+        changeOrigin: true
+      }
+    }
+  }
 };

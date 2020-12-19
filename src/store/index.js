@@ -1,7 +1,11 @@
-import Account from './modules/account';
+import Vue from "vue";
+import Vuex from "vuex";
 
-export default {
-    modules: {
-        Account,
-    },
-};
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {}
+});
