@@ -1,81 +1,46 @@
 <template>
-  <div id="app">
-    <!-- <el-row>
-      <el-button>默认按钮</el-button>
-    </el-row>
-    <button @click="test" class="danger-color">测试</button> -->
-    <!-- 根路由的出口 -->
-    <router-view />
-  </div>
+    <div id="app">
+        <router-view class="main"></router-view>
+        <transition>
+            <router-view class="tabbar" name="bottomTabbar"></router-view>
+        </transition>
+    </div>
 </template>
 
 <script>
-// 推荐使用
-// import request from './utils/request'
+import Http from "@/utils/http";
 
-// request({
-//   method: 'GET',
-//   url: '/boss/v2/api-docs?group=edu-boss-boot'
-// }).then(res => {
-//   console.log(res)
-// })
+import * as appconfig from '../public/appconfig';
+
+import utils from "@/utils";
+import { mapActions, mapMutations } from "vuex";
+
+import { Dialog } from "vant";
 
 export default {
-  data() {
-    return {
-      a: 1,
-      b: 2
-    };
-  },
-  methods: {
-    test() {
-      this.b.valueOf();
-    }
-  }
+    data() {
+        return {};
+    },
+    mounted() {
+    },
+    methods: {
+        ...mapMutations({}),
+    },
+    components: {},
+    watch: {}
 };
 </script>
 
-<!----
-<script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-// 类的装饰器 其实就是扩展后面那个类的属性和功能
-@Component
-export default class App extends Vue {
-  a = 1
-  b= '2'
-  c = {
-    a: 1,
-    b: '2'
-  }
-
-  test () {
-    console.log(this.a)
-  }
+<style lang="scss">
+#app {
+    width: 100%;
+    height: 100%;
 }
-</script>
----->
-
-<!----
-<script>
-export default {
-  data () {
-    return {
-      a: 1,
-      b: 2
-    }
-  },
-  methods: {
-    test () {
-      this.b.as()
-    }
-  }
-}
-</script>
----->
-<style lang="scss" scoped>
-// @import '~./styles/variables.scss';
-.danger-color {
-  background-color: $danger-color;
+.tabbar,
+.main {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    // background-color: $holderbg;
 }
 </style>
